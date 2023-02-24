@@ -19,7 +19,7 @@ So, yeah, fell free to help me to pay me a domain or something xd
 
 # Progress
 
-You can see all the progress [here](https://h3nr1qu3x.github.io/website/)
+You can see all the progress [here](https://h3nr1qu3x.github.io)
 
 # How to Install...
 
