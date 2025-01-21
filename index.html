@@ -2,30 +2,15 @@
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" href="style.css">
-  <title>idk</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouncing Skull</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div>
-    <p>soon...</p>
-  </div>
-
-  <script>
-    // Variável para armazenar o número de cliques
-    let contadorCliques = 0;
-
-    // Função para exibir o alerta quando o número de cliques atingir 10
-    function verificarCliques() {
-      contadorCliques++;
-      if (contadorCliques === 10) {
-        alert("what?");
-      }
-    }
-
-    // Adiciona um evento de clique ao body para chamar a função verificarCliques
-    document.body.addEventListener("click", verificarCliques);
-  </script>
+    <canvas id="skullBox"></canvas>
+    <script src="script.js"></script>
 </body>
 
 </html>
