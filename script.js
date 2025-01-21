@@ -1,9 +1,14 @@
 const canvas = document.getElementById('skullBox');
 const ctx = canvas.getContext('2d');
 
+// Define the canvas size
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+// Seleciona a imagem no HTML
+const skull = document.getElementById('skullImage');
+
+// Propriedades da imagem
 const skullImage = {
     x: 100,
     y: 100,
@@ -14,13 +19,12 @@ const skullImage = {
     shadowColor: getRandomColor()
 };
 
-const skull = new Image();
-skull.src = 'image.png';
-
+// Função para gerar cores aleatórias para a sombra
 function getRandomColor() {
     return `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
 }
 
+// Função para desenhar a imagem e sombra no canvas
 function drawLogo() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -32,6 +36,7 @@ function drawLogo() {
     ctx.drawImage(skull, skullImage.x, skullImage.y, skullImage.width, skullImage.height);
 }
 
+// Função que atualiza a animação
 const fps = 60;
 let lastFrameTime = 0;
 
@@ -42,9 +47,11 @@ function update(timestamp) {
     }
     lastFrameTime = timestamp;
 
+    // Atualiza as posições do skull
     skullImage.x += skullImage.dx;
     skullImage.y += skullImage.dy;
 
+    // Colisões com as bordas do canvas
     if (skullImage.x + skullImage.width >= canvas.width || skullImage.x <= 0) {
         skullImage.dx *= -1;
         skullImage.shadowColor = getRandomColor();
@@ -55,21 +62,18 @@ function update(timestamp) {
         skullImage.shadowColor = getRandomColor();
     }
 
+    // Desenha a imagem e atualiza a animação
     drawLogo();
     requestAnimationFrame(update);
 }
 
+// Espera até que a imagem seja carregada para começar a animação
 skull.onload = () => {
-    const offCanvas = document.createElement('canvas');
-    const offCtx = offCanvas.getContext('2d');
-    offCanvas.width = skullImage.width;
-    offCanvas.height = skullImage.height;
-    offCtx.drawImage(skull, 0, 0, offCanvas.width, offCanvas.height);
-    skull.src = offCanvas.toDataURL();
-
+    // Iniciar a animação
     requestAnimationFrame(update);
 };
 
+// Redimensionar o canvas quando a janela mudar de tamanho
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
