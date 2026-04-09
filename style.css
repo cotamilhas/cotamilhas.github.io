@@ -1,13 +1,5 @@
 body {
-    margin: 0;
-    overflow: hidden;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-canvas {
-    display: block;
+    background-image: url(https://i.imgur.com/5Th7TGH.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
